@@ -21,37 +21,26 @@ int numberN = InputInt();
 
 Console.WriteLine();
 
-int SumFromNumberMToNumberN = GetSumFromNumberMToNumberN(numberM, numberN);
-
-Console.WriteLine(SumFromNumberMToNumberN);
+GetSumFromNumberMToNumberN(numberM, numberN, 0);
 
 Console.WriteLine();
 
 
 
-// Метод вывода чисел от N до 1
+///Метод нахождения суммы натуральных элементов в промежутке от M до N
 
-int GetSumFromNumberMToNumberN(int numberM, int numberN, int sum = 0, int count = 1)
+void GetSumFromNumberMToNumberN (int numberM, int numberN, int sum)
 {
-    if (count <= (numberN - numberM))
+    if (numberM > numberN) 
     {
-        sum = sum + numberM;
-
-        sum = GetSumFromNumberMToNumberN(numberM, numberN, sum + (numberM + 1), count + 1);
+        Console.WriteLine($"Сумма натуральных элементов в промежутке от M до N равна: {sum}"); 
+        return;
     }
-    return sum;
+    sum = sum + (numberM++);
+
+    GetSumFromNumberMToNumberN(numberM, numberN, sum);
 }
 
-
-
-// int GetSumFromNumberMToNumberN(int numberM, int numberN, int sum = 0, int count = 1)
-// {
-//     if (count <= (numberN - numberM))
-//     {
-//         sum = sum + GetSumFromNumberMToNumberN(numberM, numberN, sum + (numberM +1), count + 1);
-//     }
-//     return sum;
-// }
 
 
 // Метод для приема чисел, вводимых через консоль
